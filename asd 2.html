@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>考研</title>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="telephone=no,email=no" name="format-detection"/>
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width"/>
+    <style type="text/css">
+body{
+    background: url("http://yun.static.tupo2.com/static/cms/app/kk/bbg.png") #afbdfd no-repeat;
+    background-size: 100%  auto;
+}
+*{margin: 0;padding: 0}
+.a00{
+    background:  url("http://yun.static.tupo2.com/static/cms/app/kk/02.png");
+}
+.daysbar{
+    text-align: center;
+    padding-top: 3rem
+}
+.dayimg{
+    width: 10rem
+}
+.daysbar img{
+    vertical-align: middle;
+}
+.days{
+    display: inline-block;
+    vertical-align: middle;
+}
+.days img{
+    width: 6rem
+}
+.hours,
+.minutes,
+.seconds{
+    background: #fff;
+    border-radius: 5px;
+    width: 5rem;
+    display: inline-block;
+    box-shadow:1px 1px 7px #333;
+}
+ul.countdown {
+        position: relative;
+
+            margin-bottom: 2rem;
+            top:1rem;
+           list-style: none;
+           padding: 0;
+           display: block;
+           text-align: center;
+       }
+
+       ul.countdown li {
+           display: inline-block;
+       }
+
+       ul.countdown li span {
+           font-size: 3rem;
+           line-height: 6rem;
+           height: 6rem;
+           font-weight: 300;
+           color: #3a2695
+       }
+
+       ul.countdown li.seperator {
+           font-size: 80px;
+           line-height: 70px;
+           vertical-align: top;
+
+           color: #3a2695
+       }
+
+       ul.countdown li p {
+           color: #a7abb1;
+           font-size: 14px;
+       }
+
+       a {
+           color: #76949F;
+           text-decoration: none;
+       }
+
+       a:hover {
+           text-decoration: underline;
+       }
+
+       .source {
+           width: 405px;
+           margin: 0 auto;
+           background: #4f5861;
+           color: #a7abb1;
+           font-weight: bold;
+           display: block;
+           white-space: pre;
+           -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+           border-radius: 3px;
+       }
+
+       .btn {
+           background: #f56c4c;
+           margin: 40px auto;
+           padding: 12px;
+           display: block;
+           width: 100px;
+           color: white;
+           text-align: center;
+           text-transform: uppercase;
+           font-weight: bold;
+           text-decoration: none;
+           -webkit-border-radius: 2px;
+           -moz-border-radius: 2px;
+           border-radius: 2px;
+       }
+
+       .btn:hover {
+           text-decoration: none;
+           opacity: .7;
+       }
+
+.tab{
+    width: 100%;
+    overflow: hidden;
+}
+.tab-a,.tab-b{
+    padding: 1rem
+}
+.tab .tabbtn{
+    width: 50%;
+    float: left;
+    text-align: center;
+    background: #7e59e0;
+    text-align: center;
+    color: #fff;
+    line-height: 2rem;
+
+    font-size: 0.94rem;
+}
+.tab .tabbtn.current{
+    background: #fff;
+    color: #9367ec;
+}
+.tab-wrap{
+    background: #fff;
+    margin: 1rem;
+
+        font-size: 0.81rem;
+
+        color: #484848;
+
+        box-shadow:1px 1px 8px #ccc;
+}
+.m-wrap{
+    background: #fff;
+    margin: 1rem;
+}
+.m-wrap h3{
+    color: #9367ec;
+    text-align: center;
+    font-size: 0.94rem;
+    padding-bottom: 1rem;
+}
+.m-wrap{
+    font-size: 0.81rem;
+    padding: 1rem;
+    color: #484848;
+    box-shadow:1px 1px 8px #ccc;
+}
+.header-info{
+
+    margin: 1rem;
+    font-size:0.78rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+.header-info .item {
+    width: 50%;
+    float: left;
+    background: url("http://yun.static.tupo2.com/static/cms/app/kk/tabbg.png");
+    background-size: 100%;
+
+    padding-bottom: 1rem;
+    color: #818181;
+}
+.header-info .item h3{
+    margin: 0 2rem;
+    font-size:1.26rem;
+    text-align: center;
+    height: 2.23rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    color: #5e2fd8;
+    border-bottom: 1px dotted #333
+}
+
+.cntSeparator {
+    display: block;
+    color: #fff;
+    font-size: 64px;
+    font-weight: 800;
+    text-align: center;
+    width: 40px;
+}
+.header-info p{
+
+        margin: 0 1.5rem;
+}
+.header-info .now{
+
+    font-size: 1rem;
+    color:#ff01b4;
+}
+.djs{
+    margin-bottom: 1rem
+}
+.djstitle{
+    color: #fff;
+    font-size: 0.8rem;
+    margin-left: -4rem
+}
+.mq{
+    margin-bottom: 4rem;
+    display: flex;
+    background: #ba98f7;
+    padding: 0.4rem
+}
+.mq .title{
+    color: #6137a9;
+    font-size: 0.8rem;
+    width: 10rem;
+    text-align: center;
+}
+.mq .inner{
+    background: #906bd3;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.8rem;
+    padding: 0 1rem;
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%
+}
+.footer a{
+    float: left;
+    display: block;
+    width: 50%
+}
+.footer a img{
+    display: block
+}
+</style>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a0591976d1eb5e9b71f1db2355f29f2b";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+
+
+<div class="header">
+    <div class="djs">
+
+    <div class="daysbar">
+<p class="djstitle">价格梯度恢复倒计时：</p>
+        <span class="days"></span><img class="dayimg" src="http://yun.static.tupo2.com/static/cms/app/kk/daybg.png">
+        <!-- <p class="days_ref">days</p> -->
+    </div>
+        <ul class="countdown">
+    <li> <span class="hours">00</span>
+        <!-- <p class="hours_ref">hours</p> -->
+    </li>
+    <li class="seperator">:</li>
+    <li> <span class="minutes">00</span>
+        <!-- <p class="minutes_ref">minutes</p> -->
+    </li>
+    <li class="seperator">:</li>
+    <li> <span class="seconds">00</span>
+        <!-- <p class="seconds_ref">seconds</p> -->
+    </li>
+</ul>
+
+    </div>
+    <div class="header-info">
+        <div class="item">
+            <h3>10课时</h3>
+            <p class="now">· 现价：¥1990</p>
+            <p>· 涨价后：¥2499</p>
+        </div>    <div class="item">
+                    <h3>20课时</h3>
+                    <p class="now">· 现价：¥3990</p>
+                    <p>· 涨价后：¥4999</p>
+                </div>    </div>
+</div>
+<div class="main">
+<div class="tab-wrap">
+    <div class="tab">
+        <a class="tabbtn current"  data-o="a">价格恢复说明</a>
+        <a class="tabbtn" data-o="b">辅导介绍</a>
+    </div>
+    <div class="tab-a">
+    <p>随着学长学姐开学，暑期活动即将结束，
+我们的优惠价格将逐步恢复到原始定价，有
+需要的同学们抓紧时间。</p>
+<p>1、常规2课时的咨询，价格不变；</p>
+<p>2、每课时为60分钟；</p>
+<p>3、具体授课内容根据你的需求调整，真正
+    做到“私人订制”；</p>
+<p>4、购买辅导后，如不满意，可更换辅导老
+    师或退款。</p>
+    </div>
+    <div class="tab-b" style="display:none">
+        <img src="http://yun.static.tupo2.com/static/cms/app/kk/intro.jpg" width="100%">
+    </div>
+</div>
+<div class="m-wrap">
+    <h3>报名预定</h3>
+    <p>1、预定金额200元，实际购买辅导课程时可
+    抵扣400元（仅10/20课时有效）；</p>
+<p>2、预付费报名后，课程价格将绑定为预付费
+    时的价格，不随时间增长；</p>
+<p>3、使用截止时间为12月25日；</p>
+<p>4、如12月25日前未购买辅导，全额退还预付
+    金额。
+</p>
+</div>
+
+<div class="mq">
+    <span class="title">最新报名：</span>
+    <span class="inner">
+        <marquee direction="left">1、预定金额200元，实际购买辅导课程时可
+        1、预定金额200元，实际购买辅导课程时可
+    </marquee>
+</span>
+</div>
+</div>
+<div class="footer">
+    <a><img src="http://yun.static.tupo2.com/static/cms/app/kk/btn1.png" width=100%></a><a><img src="http://yun.static.tupo2.com/static/cms/app/kk/btn2.png" width=100%></a>
+</div>
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script src="http://yun.static.tupo2.com/static/cms/script/jweixin-1.0.0.js"></script>
+<!-- <script src="http://www.17sucai.com/preview/1/2014-12-01/countdown/js/jquery.countdown.js"></script> -->
+<!-- <script src="http://www.jq22.com/demo/jQuery-countdown20160105/js/jquery.downCount.js"></script> -->
+<script>
+
+(function ($) {
+
+    $.fn.downCount = function (options, callback) {
+        var configs = $.extend({
+                date: null,
+                offset:8,     // 时区+8
+                milliShow:0   // 是否显示毫秒 ， 注：较消耗内存， 不建议使用
+            }, options);
+
+        if (!configs.date) {
+            $.error('Date is not defined.');
+        }
+
+        // 如果日期格式设置错误，抛出错误
+        if (!Date.parse(configs.date)) {
+            $.error('Incorrect date format, it should look like this, 12/24/2012 12:00:00.');
+        }
+
+        var currentDate = function () {
+            var date = new Date();
+
+            // turn date to utc
+             var utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+             var new_date = new Date(utc + (3600000*configs.offset))
+
+             return new_date;
+
+            // 更新：location time
+            // return new Date(date.getTime());
+        };
+
+        // 保存容器对象
+        var container = this;
+
+        // 倒计时
+        function countdown () {
+            var target_date = new Date(configs.date), // 设置目标日期
+                current_date = currentDate();         // 获取静态当前日期
+
+            // 计算不同日期
+            var difference = target_date - current_date;
+
+            // 当日期差小于0时，清除
+            if (difference < 0) {
+                // stop timer
+                clearInterval(interval);
+
+                if (callback && typeof callback === 'function') {
+                    callback();
+                }
+                return;
+            }
+
+
+            var _second = 1000,
+                _minute = _second * 60,
+                _hour = _minute * 60,
+                _day = _hour * 24;
+
+            // 日期数据
+            var days = Math.floor(difference / _day),
+                hours = Math.floor((difference % _day) / _hour),
+                minutes = Math.floor((difference % _hour) / _minute),
+                seconds = Math.floor((difference % _minute) / _second);
+
+                // fix dates so that it will show two digets
+                days = (String(days).length >= 2) ? days : '0' + days;
+                hours = (String(hours).length >= 2) ? hours : '0' + hours;
+                minutes = (String(minutes).length >= 2) ? minutes : '0' + minutes;
+                seconds = (String(seconds).length >= 2) ? seconds : '0' + seconds;
+
+            // 当前时间类型
+            var ref_days = (days === 1) ? 'day' : 'days',
+                ref_hours = (hours === 1) ? 'hour' : 'hours',
+                ref_minutes = (minutes === 1) ? 'minute' : 'minutes',
+                ref_seconds = (seconds === 1) ? 'second' : 'seconds';
+
+            // 设置DOM 时间数据
+            $(".days").html("<img src=http://yun.static.tupo2.com/static/cms/app/kk/"+days+".png>")
+            //container.find('.days').text(days);
+            container.find('.hours').text(hours);
+            container.find('.minutes').text(minutes);
+            container.find('.seconds').text(seconds);
+
+            // 设置DOM 时间类型数据
+            container.find('.days_ref').text(ref_days);
+            container.find('.hours_ref').text(ref_hours);
+            container.find('.minutes_ref').text(ref_minutes);
+            container.find('.seconds_ref').text(ref_seconds);
+        }
+
+        // 开始设置计数器：1秒调用1次
+        var interval = setInterval(countdown, 1000);
+
+
+        // 是否显示毫秒， 注：较消耗内存， 不建议使用
+        if(configs.milliShow){
+
+            var ref_Milliseconds = 0;
+
+            function Millisecond() {
+                ref_Milliseconds++;
+
+                // 只显示两位
+                if(ref_Milliseconds > 100){
+                    ref_Milliseconds = 0;
+                    return;
+                }
+                container.find('.Milliseconds').text(ref_Milliseconds);
+            }
+
+            // 开始设置计数器， 1000分之1秒调用一次
+            setInterval(Millisecond, 1);
+        }
+    };
+})(jQuery);
+$(document).ready(function() {
+    $(".tabbtn").on("click",function(){
+        var $this=$(this),
+            type=$(this).attr("data-o")
+            console.log(type)
+        $(".tab-a,.tab-b").hide()
+        $(".tab-"+type).show()
+
+    })
+    $('.countdown').downCount({
+       date: '2017/9/3',
+       milliShow:!0
+   }, function () {
+       console.log('倒计时结束!');
+   });
+
+
+});
+var str1,str2
+$(".sb").css("height",1058/750* document.body.clientWidth)
+$(".nb").css("top",1058/750* document.body.clientWidth*515/1058)
+function getstr(a,b){
+    var str="我家宝宝在英语总动员里" + a +b +"计划，英语能力突飞猛进，一起来学英语吧！"
+    return str
+
+}
+function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+}
+var namestr=window.location.href.split("?")
+var vobj={}
+if(namestr.length>=2){
+   namestr2=namestr[1].split("&")
+   $(namestr2).each(function(i,dom){
+    var d=dom.split("=")
+    vobj[d[0]]=d[1]
+   })
+
+}
+
+$.get('http://www.himi.com/api/v1.0/himi?action=plan_detail&plan_id='+vobj["pid"], {
+    "plan_id":getQueryString("pid"),
+    "uid" : getQueryString("uid")
+}, function(response) {
+    if(response.code==0){
+        $("#nn").html(response.detail.plan_detail.name)
+        $("#desc").html(response.detail.plan_detail.desc)
+        var list=response.detail.plan_detail.all_steps;
+        var hinner=""
+               $.each(list,function(i,item){
+                   hinner+="<div class=awrap>"
+                   hinner+="<div class='name'>"+item.name+"</div>"
+                   for(var n=0;n<item.tasks.length;n++){
+                       hinner+='<div class=list><p>'+item["tasks"][n]+'</p></div>'
+                   }
+                   hinner+="</div>"
+               })
+       $(".inner").html(hinner)
+    }
+
+})
+
+$.get('http://www.himi.com/api/v1.2/wxauth', {
+    "url": encodeURIComponent(window.location.href),
+    "_t" : new Date().getTime(),
+    "app":  "himi"
+}, function(response) {
+    var data = response.detail;
+    WX_SHARE(data);
+})
+
+
+
+function is_weixin() {
+    var ua = navigator.userAgent.toLowerCase();
+    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function WX_SHARE (wx_auth) {
+var WX_INFO = {
+        "title": getstr(str1,str2),
+        "desc_frined": "英语总动员",
+        "link": window.location.href,
+        "imgUrl": "http://yun.static.tupo2.com/static/cms/app/logo1.png"
+    },
+    _wx_auth = wx_auth;
+wx.config({
+    debug: false,
+    appId: _wx_auth.appId,
+    timestamp: _wx_auth.timestamp,
+    nonceStr: _wx_auth.nonceStr,
+    signature: _wx_auth.signature,
+    jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ']
+});
+wx.error(function(res) {
+    console.log(res);
+});
+wx.ready(function() {
+    wx.onMenuShareTimeline({
+        title: getstr(str1,str2),
+        link: WX_INFO.link,
+        imgUrl: WX_INFO.imgUrl,
+        success: function() {
+            // window._hmt && window._hmt.push(['_trackEvent', "分享成功-朋友圈-渠道"+_app_channel, 'share','你有一个学霸的未接来电']);
+        },
+        cancel: function() {
+            // window._hmt && window._hmt.push(['_trackEvent', "分享取消-朋友圈-渠道"+_app_channel, 'share','你有一个学霸的未接来电']);
+        }
+    });
+    wx.onMenuShareAppMessage({
+        title: WX_INFO.desc_frined,
+        link: WX_INFO.link,
+        imgUrl: WX_INFO.imgUrl,
+        desc: getstr(str1,str2),
+        type: 'link',
+        dataUrl: '',
+        success: function() {
+            // window._hmt && window._hmt.push(['_trackEvent', "分享成功-好友-渠道"+_app_channel, 'share','你有一个学霸的未接来电']);
+        },
+        cancel: function() {
+            // window._hmt && window._hmt.push(['_trackEvent', "分享取消-好友-渠道"+_app_channel, 'share','你有一个学霸的未接来电']);
+        }
+    });
+    wx.onMenuShareQQ({
+        title: WX_INFO.title,
+        desc: WX_INFO.desc_frined,
+        link: WX_INFO.link,
+        imgUrl: WX_INFO.imgUrl,
+        success: function() {
+            // window._hmt && window._hmt.push(['_trackEvent', "分享成功-QQ-渠道"+_app_channel, 'share','你有一个学霸的未接来电']);
+        },
+        cancel: function() {
+            // window._hmt && window._hmt.push(['_trackEvent', "分享取消-QQ-渠道"+_app_channel, 'share','你有一个学霸的未接来电']);
+        }
+    });
+});
+}
+</script>
+</html>
